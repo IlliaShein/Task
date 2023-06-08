@@ -1,0 +1,42 @@
+﻿<div>
+    • To load data from a CSV file, choose the file and click the 'Upload CSV file' button. Delimiter should be ';' and date should have the format dd.MM.yyyy; <br>
+    • Don't forget to click the 'Save' button after editing the table to save changes in the database; <br>
+    • The filter will show you only rows that contain the data you entered.
+</div>
+<form action="@Url.Action("UploadCSV", "Home")" method="post" enctype="multipart/form-data" id="fileForm">
+    <input type="file" name="file" id="CSVfileInput">
+</form>
+<hr />
+<div>
+    <button id="uploadCSVButton">Upload CSV file</button>
+    <button id="saveButton">Save</button>
+</div>
+<hr />
+<div>
+    <input type="text" id="filterInput" placeholder="Filter" />
+    <table id="contactsTable">
+        <thead>
+            <tr>
+                <th class="sortable" data-sort-by="Name">Name ▲</th>
+                <th class="sortable" data-sort-by="DateOfBirth">Date of Birth ▲</th>
+                <th class="sortable" data-sort-by="Married">Married ▲</th>
+                <th class="sortable" data-sort-by="Phone">Phone ▲</th>
+                <th class="sortable" data-sort-by="Salary">Salary ▲</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var contact in Model)
+            {
+                <tr>
+                    <td contenteditable="true">@contact.Name</td>
+                    <td contenteditable="true">@contact.DateOfBirth.ToString("dd.MM.yyyy")</td>
+                    <td contenteditable="true">@contact.Married</td>
+                    <td contenteditable="true">@contact.Phone</td>
+                    <td contenteditable="true">@contact.Salary</td>
+                    <td class="delete-td"><img class="delete-image" src="~/wwwroot/DeleteRow.png" alt="delete" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<hr />
