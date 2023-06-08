@@ -1,6 +1,4 @@
-﻿using CsvHelper.Configuration.Attributes;
-using CsvHelper.TypeConversion;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Task_.Models
